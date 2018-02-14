@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>JspServletExample03</display-name>
+	<welcome-file-list>
+		<welcome-file>jsp/login.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>REG</servlet-name>
+		<servlet-class>com.wisdom.servletdemo.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>REG</servlet-name>
+		<url-pattern>/Hello.do</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/ErrorHandler.html</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/ErrorHandler.html</location>
+	</error-page>
+	<filter>
+		<filter-name>WEBFilter</filter-name>
+		<filter-class>com.wisdom.servletdemo.WebFilter</filter-class>
+		<init-param>
+			<param-name>test-param</param-name>
+			<param-value>Initialization Paramter</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>WEBFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>

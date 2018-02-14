@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+
+		<h:form>
+			<h:panelGrid columns="3" cellpadding="5">
+				<h:outputLabel for="menu" value="Location:" />
+				<p:selectCheckboxMenu id="menu" value="#{courseBean.selectedCities}"
+					label="Cities" filter="true" filterMatchMode="startsWith"
+					panelStyle="width:250px">
+					<f:selectItems value="#{courseBean.cities}" />
+				</p:selectCheckboxMenu>
+				
+					
+				<p:commandButton value="Submit" icon="ui-icon-check" id="submit"
+					actionListener="#{courseBean.submitCourseData}" />
+				<p:spacer width="20" height="20" />
+				<p:commandButton type="reset" value="Reset" icon="ui-icon-check" />
+			</h:panelGrid>
+			
+				
+			
+			<!-- <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+        <p:dataList value="#{courseBean.selectedCities}" var="city" emptyMessage="No cities selected">
+            #{city}
+        </p:dataList>
+    </p:outputPanel> -->
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

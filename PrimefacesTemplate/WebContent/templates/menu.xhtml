@@ -1,0 +1,54 @@
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<h:form>
+
+		<p:outputPanel id="menuPanel" layout="block">
+
+			<!-- <p:panelMenu model="#{DynamicMenu.menuModel}"/>  -->
+
+
+			<p:panelMenu autoSubmenuDisplay="false" ajax="true">
+
+				<p:submenu label="Courses" icon="ui-icon ui-icon-refresh">
+					<p:menuitem value="Create Courses"
+						url="/pages/createCourse.xhtml?param=page3" ajax="true" />
+					<p:menuitem value="View Courses"
+						url="/pages/viewCourse.xhtml?param=page4" ajax="true" />
+
+				</p:submenu>
+
+				<p:submenu label="Student" icon="ui-icon ui-icon-refresh">
+					<p:menuitem value="Create Student"
+						url="/pages/createStudent.xhtml?param=page1" ajax="true" />
+					<p:menuitem value="View Student"
+						url="/pages/createStudent.xhtml?param=page2" ajax="true" />
+
+				</p:submenu>
+				
+				<p:submenu label="Lecturers" icon="ui-icon ui-icon-refresh">
+					<p:menuitem value="Create Lecturers"
+						url="/pages/createLecturer.xhtml?param=page5" ajax="true" />
+					<p:menuitem value="View Lecturers"
+						url="/pages/viewLecturer.xhtml?param=page6" ajax="true" />
+
+				</p:submenu>
+
+				<p:submenu label="More Pages" icon="ui-icon ui-icon-refresh">
+					<p:menuitem value="Page 1" />
+				</p:submenu>
+
+			</p:panelMenu>
+
+		</p:outputPanel>
+
+	</h:form>
+</ui:composition>
+
+

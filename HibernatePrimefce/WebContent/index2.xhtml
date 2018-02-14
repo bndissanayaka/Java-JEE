@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:dataTable id="dataTable" var="emp"
+				value="#{EmployeeBean.empDisplayList}">
+				<f:facet name="header">
+List of Employees
+</f:facet>
+				<p:column>
+					<f:facet name="header">
+</f:facet>
+				</p:column>
+				<p:column headerText="First Name">
+					<h:outputText value="#{emp.firstName}" />
+				</p:column>
+				<p:column headerText="Last Name">
+					<h:outputText value="#{emp.lastName}" />
+				</p:column>
+				<p:column headerText="Salary">
+					<h:outputText value="#{emp.salary}" />
+				</p:column>
+				
+				<f:facet name="footer">
+Footer
+</f:facet>
+			</p:dataTable>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

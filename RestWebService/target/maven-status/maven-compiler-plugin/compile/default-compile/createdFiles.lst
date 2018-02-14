@@ -1,0 +1,3 @@
+com\wisdom\rest\CustomApplication.class
+com\wisdom\rest\JerseyService.class
+com\wisdom\rest\Employee.class

@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<f:view contentType="text/html">
+			<h:head>
+			</h:head>
+			<h:body>
+				<h:form>
+					<p:panelGrid columns="2">
+						<f:facet name="header">
+                        Student Registration
+                        </f:facet>
+
+						<h:outputLabel for="name" value="Student Name:"
+							style="font-weight:bold" />
+						<p:inputText id="name" label="Name" value="#{studentBean.name}" />
+
+						<h:outputLabel for="number" value="Student Reg No:"
+							style="font-weight:bold" />
+						<p:inputText id="number" label="Number"
+							value="#{studentBean.regNo}" />
+
+						<h:outputLabel for="add" value="Address:" style="font-weight:bold" />
+						<p:inputText id="add" label="Address"
+							value="#{studentBean.addrs}" />
+
+						<h:outputLabel for="phn" value="Phone No:"
+							style="font-weight:bold" />
+						<p:inputText id="phn" label="Number"
+							value="#{studentBean.phnno}">
+							<!--<f:validateDoubleRange minimum="5" maximum="8" />-->
+						</p:inputText>
+
+						<h:outputLabel for="email" value="Email :"
+							style="font-weight:bold" />
+						<p:inputText id="email" label="Email"
+							value="#{studentBean.email}" />
+
+						<h:outputLabel for="nic" value="NIC :" style="font-weight:bold" />
+						<p:inputText id="nic" label="NIC" value="#{studentBean.nic}" />
+
+						<h:outputLabel for="date" value="Birth Day"
+							style="font-weight:bold" />
+						<p:inputText id="date" label="BDate" value="#{studentBean.dob}">
+							<f:convertDateTime pattern="MM/dd/yyyy" />
+						</p:inputText>
+
+						<f:facet name="footer">
+							
+							<p:commandButton value="Submit" icon="ui-icon-check" id="submit"
+								
+								actionListener="#{studentBean.submitData}" />
+							<p:spacer width="20" height="20" />
+
+						</f:facet>
+					</p:panelGrid>
+				</h:form>
+			</h:body>
+		</f:view>
+		<!--<p:outputLabel value="#{studentBean.pageLink}"></p:outputLabel>-->
+
+	</ui:define>
+</ui:composition>

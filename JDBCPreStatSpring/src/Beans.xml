@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost/" />
+		<property name="username" value="postgres" />
+		<property name="password" value="admin" />
+	</bean>
+	
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+	<!--
+	Here we need both named parameter and normal jdbc template. so getting both using 
+	DI is not the best practice. rather we inject the data source to dao directly and
+	inside dao class using new we create objects of jdbc template and named parameter 
+	jdbc template giving data source as a parameter to constructors. like this,
+	NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+	-->
+	<bean id="nmparajdbcTemplate"
+		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="ds" />
+	</bean> -->
+	
+	<bean id="edao" class="com.wisdom.demo.EmployeeDao">
+		<!-- <property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="nmparajdbcTemplate" ref="nmparajdbcTemplate" /> -->
+		
+			<property name="dataSource" ref="ds"></property>
+	</bean>
+
+</beans>

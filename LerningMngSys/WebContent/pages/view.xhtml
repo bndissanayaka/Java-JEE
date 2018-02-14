@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+	<p:dataTable id="dataTable" var="student"
+		value="#{StudentDetailsLoaderBean.studDisplayList}" 
+		paginatorTemplate="{CurrentPageReport}{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        rowsPerPageTemplate="5,10,15" >
+		<f:facet name="header">
+           List of Students
+        </f:facet>
+		<p:column>
+			<f:facet name="header">
+               Reg No
+            </f:facet>
+			<h:outputText value="#{student.regNo}" />
+			<f:facet name="footer">
+            Max 10 digit
+            </f:facet>
+		</p:column>
+		<p:column headerText="First Name">
+			<h:outputText value="#{student.firstName}" />
+		</p:column>
+		<p:column headerText="Last Name">
+			<h:outputText value="#{student.lastName}" />
+		</p:column>
+		<p:column headerText="Email">
+			<h:outputText value="#{student.email}" />
+		</p:column>
+		<p:column headerText="Phone">
+			<h:outputText value="#{student.phone}" />
+		</p:column>
+		<f:facet name="footer">
+        Total No of Students 3.
+        </f:facet>
+	</p:dataTable>
+	</ui:define>
+</ui:composition>

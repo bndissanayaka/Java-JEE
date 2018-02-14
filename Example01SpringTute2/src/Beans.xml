@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="employee" class="com.wisdom.spring.demo.EmployeeBean"
+		autowire="byName">
+		<property name="fullName" value="Asela Liyanage" />
+	</bean>
+	<bean id="departmentBean" class="com.wisdom.spring.demo.DepartmentBean">
+		<property name="name" value="Human Resource" />
+	</bean>
+</beans>

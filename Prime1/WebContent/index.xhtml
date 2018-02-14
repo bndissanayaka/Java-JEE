@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+				Student Registration
+				</f:facet>
+				<h:outputLabel for="firstName" value="First Name: " />
+				<p:inputText id="firstName" value="" />
+				<h:outputLabel for="lastName" value="Last Name: " />
+				<p:inputText id="lastName" value="" />
+				<h:outputLabel for="dob" value="Date of Birth: " />
+				<p:calendar navigator="none" />
+				<h:outputLabel for="nic" value="NIC: " />
+				<p:inputText id="nic" value="" />
+				<h:outputLabel for="email" value="Email: " />
+				<p:inputText id="email" value="" />
+				<h:outputLabel for="tel" value="Phone No: " />
+				<p:inputText id="tel" value="" />
+				<h:outputLabel for="address" value="Address: " />
+				<p:inputTextarea id="address" rows="4" cols="40" />
+				<f:facet name="footer">
+					<p:commandButton type="button" value="Submit" icon="ui-icon-check" />
+					<p:spacer width="20" height="20" />
+					<p:commandButton type="reset" value="Reset" icon="ui-icon-check" />
+				</f:facet>
+			</p:panelGrid>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

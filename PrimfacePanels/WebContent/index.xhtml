@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+	</h:head>
+	<h:body>
+		<h:form id="form">
+			<p:panel header="Ajaxify">
+				<h:panelGrid columns="3" cellpadding="5">
+					<h:outputText value="First Name (KeyUp): " />
+					<p:inputText id="firstname" value="#{DemoBean.firstname}">
+						<p:ajax event="keyup" update="out1" />
+					</p:inputText>
+					<h:outputText id="out1" value="#{DemoBean.firstname}" />
+					<h:outputText value="Surname (Blur): " />
+					<p:inputText id="surname" value="#{DemoBean.surname}">
+						<p:ajax event="blur" update="out2" />
+					</p:inputText>
+					<h:outputText id="out2" value="#{DemoBean.surname}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

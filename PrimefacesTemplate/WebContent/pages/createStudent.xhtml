@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+				Student Registration
+				</f:facet>
+
+				<h:outputLabel for="stuid" value="Student ID: " />
+				<p:inputText id="stuid" value="#{studentBean.stuid}" />
+
+				<h:outputLabel for="firstName" value="First Name: " />
+				<p:inputText id="firstName" value="#{studentBean.firstName}" />
+
+				<h:outputLabel for="lastName" value="Last Name: " />
+				<p:inputText id="lastName" value="#{studentBean.lastName}" />
+
+				<h:outputLabel for="dob" value="Date of Birth: *" />
+				<p:calendar navigator="none" required="true" label="Date of Birth"
+					value="#{studentBean.dob}" />
+
+				<h:outputLabel for="nic" value="NIC: " />
+				<p:inputText id="nic" value="#{studentBean.nic}" />
+
+				<h:outputLabel for="email" value="Email: " />
+				<p:inputText id="email" value="#{studentBean.email}" />
+
+				<h:outputLabel for="telno" value="Phone No: " />
+				<p:inputText id="telno" value="#{studentBean.telno}" />
+
+				<h:outputLabel for="address" value="Address: " />
+				<p:inputTextarea id="address" rows="4" cols="40" required="true"
+					label="Address" value="#{studentBean.address}" />
+
+				<f:facet name="footer">
+					<p:commandButton value="Submit" icon="ui-icon-check" id="submit"
+						actionListener="#{studentBean.submitData}" />
+					<p:spacer width="20" height="20" />
+					<p:commandButton type="reset" value="Reset" icon="ui-icon-check" />
+				</f:facet>
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

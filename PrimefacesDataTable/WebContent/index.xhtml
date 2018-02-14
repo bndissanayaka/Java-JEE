@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:dataTable id="dataTable" var="student"
+				value="#{StudentDetailsLoaderBean.studDisplayList}">
+				<f:facet name="header">
+					List of Students
+				</f:facet>
+				<p:column>
+					<f:facet name="header">
+						Reg No
+					</f:facet>
+					<h:outputText value="#{student.regNo}" />
+					<f:facet name="footer">
+						Max 10 digit
+					</f:facet>
+				</p:column>
+				<p:column headerText="First Name">
+					<h:outputText value="#{student.firstName}" />
+				</p:column>
+				<p:column headerText="Last Name">
+					<h:outputText value="#{student.lastName}" />
+				</p:column>
+				<p:column headerText="Email">
+					<h:outputText value="#{student.email}" />
+				</p:column>
+				<p:column headerText="Phone">
+					<h:outputText value="#{student.phone}" />
+				</p:column>
+				<f:facet name="footer">
+Total No of Students 3.
+</f:facet>
+			</p:dataTable>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

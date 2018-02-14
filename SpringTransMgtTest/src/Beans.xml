@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+	<!-- Initialization for data source -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost/" />
+		<property name="username" value="postgres" />
+		<property name="password" value="admin" />
+	</bean>
+	<!-- Initialization for TransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Initialization for JDBCTemplate -->
+	<bean id="jdbctmplt" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Definition for StudentDAOImpl bean -->
+	<bean id="studentDAOImpl" class="com.wisdom.test.StudentDAOImpl">
+		
+		<property name="transactionManager" ref="pltfrmtransmng" />
+		<property name="jdbcTemplate" ref="jdbctmplt" />
+	</bean>
+</beans>
